@@ -33,7 +33,7 @@ export class CommentEffects {
     this.actions$.pipe(
       ofType(CommentActions.getComments),
       exhaustMap((action) =>
-        this.commentService.getComments(action.postId).pipe(
+        this.commentService.getComments(action.postId.toString()).pipe(
           map((comments) => {
             let commentsList = comments.map((comment: any) => {
               return {

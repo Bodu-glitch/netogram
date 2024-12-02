@@ -1,6 +1,6 @@
 export interface CommentModel {
   commentId: number;
-  postId: number;
+  postId: string;
   uid: string;
   text: string ;
   createdAt: string;

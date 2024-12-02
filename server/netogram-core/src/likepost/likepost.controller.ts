@@ -23,7 +23,7 @@ export class LikepostController {
   }
 
   @Delete()
-    delete(@Query('postId') postId: number,
+    delete(@Query('postId') postId: string,
              @Req() req) {
         try {
         const { uid } = req.user;
@@ -38,7 +38,7 @@ export class LikepostController {
     }
 
     @Get()
-    countLikes(@Query('postId') postId: number) {
+    countLikes(@Query('postId') postId: string) {
         try {
         return this.likepostService.countLikes(postId);
         }catch (e){
@@ -51,7 +51,7 @@ export class LikepostController {
     }
 
     @Get('isLiked')
-    async isLiked(@Query('postId') postId: number,
+    async isLiked(@Query('postId') postId: string,
             @Req() req) {
         try {
         const { uid } = req.user;

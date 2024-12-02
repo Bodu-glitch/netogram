@@ -47,7 +47,7 @@ export class LikepostService {
     return await this.LikepostRepository.save(like);
   }
 
-  async delete (uid: string, postId: number) {
+  async delete (uid: string, postId: string) {
     let deletedLike = await this.LikepostRepository.findOne({ where: { postId,uid } });
     if (!deletedLike) {
       throw new HttpException('Like not found', 404);
@@ -55,11 +55,11 @@ export class LikepostService {
     return await this.LikepostRepository.delete(deletedLike);
   }
 
-  async isLiked(postId: number, uid: string) {
+  async isLiked(postId: string, uid: string) {
     return await this.LikepostRepository.findOne({ where: { postId, uid } });
   }
 
-  async countLikes(postId: number) {
+  async countLikes(postId: string) {
     return await this.LikepostRepository.count({ where: { postId } });
   }
 }

@@ -9,7 +9,7 @@ export class Comment {
 
     @ManyToOne(() => Post,  { onDelete: 'CASCADE' })
     @Column({type: "bigint"})
-    postId: number;
+    postId: string;
 
     @Column({ type: 'text'})
     uid: string;

@@ -1,6 +1,6 @@
 export interface LikepostModel{
   likeId: number;
-  postId: number;
+  postId: bigint;
   uid: string;
   createdAt: string;
 }

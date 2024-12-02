@@ -10,18 +10,19 @@ export class LikepostService {
   constructor(private httpClient: HttpClientAuth) { }
 
   createLikePost(like: LikepostModel) {
+    console.log(like.postId);
     return this.httpClient.post('likepost', like);
   }
 
-  getLikePostCount(postId: number) {
+  getLikePostCount(postId: string) {
     return this.httpClient.get(`likepost?postId=${postId}`);
   }
 
-  getIsLiked(postId: number) {
+  getIsLiked(postId: string) {
     return this.httpClient.get(`likepost/isLiked?postId=${postId}`);
   }
 
-  deleteLiked(postId: number) {
+  deleteLiked(postId: string) {
     return this.httpClient.delete(`likepost?postId=${postId}`);
   }
 }

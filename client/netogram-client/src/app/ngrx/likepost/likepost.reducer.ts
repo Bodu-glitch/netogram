@@ -6,7 +6,7 @@ import { act } from '@ngrx/effects';
 const initialState: LikepostState = {
   likePost: {
     likeId: 0,
-    postId: 0,
+    postId: BigInt(0),
     uid: '',
     createdAt: '',
   },
@@ -141,7 +141,7 @@ export const likepostReducer = createReducer(
       ...state,
       likePost: {
         likeId: 0,
-        postId: 0,
+        postId: BigInt(0),
         uid: '',
         createdAt: '',
       },

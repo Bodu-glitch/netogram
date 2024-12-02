@@ -44,7 +44,7 @@ export class CommentService {
     return await this.commentRepository.save(newComment);
   }
 
-  async findAll(postId: number) {
+  async findAll(postId: string) {
     const post = await this.postRepository.findOne({ where: { id: postId } });
 
     if (!post) {
@@ -53,7 +53,7 @@ export class CommentService {
     return await this.commentRepository.find({ where: { postId }, order: { createdAt: 'DESC'} });
   }
 
-  async countComments(postId: number) {
+  async countComments(postId: string) {
     return await this.commentRepository.count({ where: { postId } });
   }
 

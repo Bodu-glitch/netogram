@@ -10,7 +10,7 @@ export class Likepost {
 
     @ManyToOne(() => Post )
     @Column({type: "bigint"})
-    postId: number;
+    postId: string;
 
     @Column({type: "text"})
     uid: string;

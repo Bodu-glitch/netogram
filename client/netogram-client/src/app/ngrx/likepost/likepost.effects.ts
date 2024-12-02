@@ -29,7 +29,7 @@ export class LikepostEffects {
   ));
   getLikePostCount$ = createEffect(() => this.actions$.pipe(
     ofType(LikepostActions.getLikepostCount),
-    switchMap((action) => this.likepostService.getLikePostCount(action.postId).pipe(
+    switchMap((action) => this.likepostService.getLikePostCount(action.postId.toString()).pipe(
         map((likeCount: number) => {
           return LikepostActions.getLikepostCountSuccess({likepostCount: likeCount});
         }),
@@ -40,7 +40,7 @@ export class LikepostEffects {
   ));
   getIsLiked$ = createEffect(() => this.actions$.pipe(
     ofType(LikepostActions.getIsLiked),
-    switchMap((action) => this.likepostService.getIsLiked(action.postId).pipe(
+    switchMap((action) => this.likepostService.getIsLiked(action.postId.toString()).pipe(
         map((isLiked: boolean) => {
           return LikepostActions.getIsLikedSuccess({isLiked});
         }),
@@ -52,7 +52,7 @@ export class LikepostEffects {
 
   deleteLiked$ = createEffect(() => this.actions$.pipe(
     ofType(LikepostActions.deleteLike),
-    switchMap((action) => this.likepostService.deleteLiked(action.postId).pipe(
+    switchMap((action) => this.likepostService.deleteLiked(action.postId.toString()).pipe(
         map(() => {
           return LikepostActions.deleteLikeSuccess();
         }),

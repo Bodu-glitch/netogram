@@ -88,7 +88,7 @@ export class PostService {
   }
 
   //get post by id
-  async findPostById(id: number) {
+  async findPostById(id: string) {
     const post = await this.postRepository.findOne({ where: { id } });
     if (!post) {
       throw new NotFoundException('Post not found');
@@ -97,7 +97,7 @@ export class PostService {
   }
 
   //update post
-  async updatePost(postId: number, updatePostDto: UpdatePostDto) {
+  async updatePost(postId: string, updatePostDto: UpdatePostDto) {
     const post = await this.findPostById(postId);
     console.log(post.uid);
     console.log(updatePostDto.uid);
@@ -115,7 +115,7 @@ export class PostService {
   }
 
   //delete post
-  async deletePost(id: number, uid: string) {
+  async deletePost(id: string, uid: string) {
     const post = await this.findPostById(id);
     //check if the post is owned by the user
     console.log("post id",post.uid);

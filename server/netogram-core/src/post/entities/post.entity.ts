@@ -13,7 +13,7 @@ import { Profile } from "../../profile/entities/profile.entity";
 @Unique([ 'uid','id'])
 export class Post {
   @PrimaryColumn({type: 'bigint' })
-  id: number;
+  id: string;
 
   @Column({ type: 'text' })
   content: string;

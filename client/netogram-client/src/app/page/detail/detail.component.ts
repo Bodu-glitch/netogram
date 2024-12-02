@@ -61,7 +61,7 @@ export class DetailComponent implements OnInit, OnDestroy {
   commentData: CommentModel = {
     commentId: 1,
     uid: 'asdfasdfsadf',
-    postId: 8909711579549696,
+    postId: '8909711579549696',
     text: '',
     createdAt: 'asdfasd',
   };
@@ -69,7 +69,7 @@ export class DetailComponent implements OnInit, OnDestroy {
   likePostData: LikepostModel = {
     likeId: 1,
     uid: 'asdfasdfsadf',
-    postId: 8909711579549696,
+    postId: BigInt(8909711579549696),
     createdAt: 'asdfasd',
   };
 
@@ -91,14 +91,14 @@ export class DetailComponent implements OnInit, OnDestroy {
         this.postDetail = post;
         this.store.dispatch(
           LikeActions.getLikepostCount({
-            postId: Number(this.postDetail.id),
+            postId: BigInt(this.postDetail.id),
           }),
         );
         this.store.dispatch(
-          LikeActions.getIsLiked({ postId: Number(this.postDetail.id) }),
+          LikeActions.getIsLiked({ postId: BigInt(this.postDetail.id) }),
         );
         this.store.dispatch(
-          CommentActions.getComments({ postId: Number(this.postDetail.id) }),
+          CommentActions.getComments({ postId: BigInt(this.postDetail.id) }),
         );
       }
     });
@@ -156,7 +156,7 @@ export class DetailComponent implements OnInit, OnDestroy {
         if (success) {
           this.isLoading = false;
           this.store.dispatch(
-            CommentActions.getComments({ postId: Number(this.postDetail.id) }),
+            CommentActions.getComments({ postId: BigInt(this.postDetail.id) }),
           );
         }
       }),
@@ -166,11 +166,11 @@ export class DetailComponent implements OnInit, OnDestroy {
           this.isLoading = false;
           this.store.dispatch(
             LikeActions.getLikepostCount({
-              postId: Number(this.postDetail.id),
+              postId: BigInt(this.postDetail.id),
             }),
           );
           this.store.dispatch(
-            LikeActions.getIsLiked({ postId: Number(this.postDetail.id) }),
+            LikeActions.getIsLiked({ postId: BigInt(this.postDetail.id) }),
           );
         }
       }),
@@ -180,11 +180,11 @@ export class DetailComponent implements OnInit, OnDestroy {
           this.isLoading = false;
           this.store.dispatch(
             LikeActions.getLikepostCount({
-              postId: Number(this.postDetail.id),
+              postId: BigInt(this.postDetail.id),
             }),
           );
           this.store.dispatch(
-            LikeActions.getIsLiked({ postId: Number(this.postDetail.id) }),
+            LikeActions.getIsLiked({ postId: BigInt(this.postDetail.id) }),
           );
         }
       }),
@@ -230,7 +230,7 @@ export class DetailComponent implements OnInit, OnDestroy {
     this.isLoading = true;
     this.postDetail$.subscribe((post) => {
       if (post && post.id) {
-        this.commentData = { ...this.commentData, postId: Number(post.id) };
+        this.commentData = { ...this.commentData, postId: post.id.toString() };
       }
     });
     this.commentData = {
@@ -248,7 +248,7 @@ export class DetailComponent implements OnInit, OnDestroy {
     this.isLoading = true;
     this.postDetail$.pipe(take(1)).subscribe((post) => {
       if (post && post.id) {
-        this.likePostData = { ...this.likePostData, postId: Number(post.id) };
+        this.likePostData = { ...this.likePostData, postId: post.id };
         this.store.dispatch(
           LikeActions.createLikepost({ likePost: this.likePostData }),
         );
@@ -260,10 +260,10 @@ export class DetailComponent implements OnInit, OnDestroy {
     this.isLoading = true;
     this.postDetail$.pipe(take(1)).subscribe((post) => {
       if (post && post.id) {
-        this.likePostData = { ...this.likePostData, postId: Number(post.id) };
+        this.likePostData = { ...this.likePostData, postId: BigInt(post.id) };
 
         this.store.dispatch(
-          LikeActions.deleteLike({ postId: Number(post.id) }),
+          LikeActions.deleteLike({ postId: BigInt(post.id) }),
         );
       }
     });

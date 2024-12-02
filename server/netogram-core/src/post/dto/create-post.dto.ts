@@ -3,7 +3,7 @@ import { IsArray, IsNotEmpty, IsNumber, IsOptional, IsString } from "class-valid
 export class CreatePostDto {
   @IsNotEmpty()
   @IsString()
-  id: number;
+  id: string;
 
 
   @IsString()

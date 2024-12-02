@@ -14,6 +14,7 @@ export class CommentService {
     return this.httpClient.post('comment', comment);
   }
 
-  getComments(postId: number) {
+  getComments(postId: string) {
     return this.httpClient.get(`comment?postId=${postId}`);  }
+
 }

@@ -71,7 +71,7 @@ export class PostController {
 
   @Get(':id')
   async findPostById(@Param('id') id: string) {
-    return this.postService.findPostById(+id);
+    return this.postService.findPostById(id);
   }
 
   @Get()
@@ -92,12 +92,12 @@ export class PostController {
 
   @Put(':id')
   async update(@Param('id') id: string, @Body() updatePostDto: UpdatePostDto) {
-    return this.postService.updatePost(+id, updatePostDto);
+    return this.postService.updatePost(id, updatePostDto);
   }
 
   //delete post by id with uid
   @Delete(':id')
-  async remove(@Param('id') id: number, @Query('uid') uid: string) {
+  async remove(@Param('id') id: string, @Query('uid') uid: string) {
     return this.postService.deletePost(id, uid);
   }
 }

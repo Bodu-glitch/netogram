@@ -128,7 +128,7 @@ export class SearchService {
     return response.hits.hits;
   }
 
-  async deletePost(postId: number) {
+  async deletePost(postId: string) {
     // delete post from hashtags index
     // get post first
     const post = await this.esClient.get({

@@ -5,7 +5,7 @@ export class CreateCommentDto {
     commentId: number;
 
     @IsNotEmpty()
-    postId: number;
+    postId: string;
 
     @IsNotEmpty()
     @IsString()

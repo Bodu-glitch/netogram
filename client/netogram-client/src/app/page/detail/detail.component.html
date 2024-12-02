@@ -110,11 +110,11 @@
                 <span class="comment-text">{{ user.text }}</span>
                 <span class="comment-date">{{ user.createdAt | dateTranform }}</span>
               </div>
-              <div class="comment-options">
-                <button mat-icon-button [matMenuTriggerFor]="menu">
-                  <span class="material-symbols-outlined">more_horiz</span>
-                </button>
-              </div>
+<!--              <div class="comment-options">-->
+<!--                <button mat-icon-button [matMenuTriggerFor]="menu">-->
+<!--                  <span class="material-symbols-outlined">more_horiz</span>-->
+<!--                </button>-->
+<!--              </div>-->
               <mat-menu #menu="matMenu">
                 <button mat-menu-item>
                   <div class="delete-comment">

@@ -3,7 +3,7 @@ import { CommentModel } from '../../models/comment.model';
 
 export const getComments = createAction(
   '[Comment] Get Comments',
-  props<{ postId: number }>(),
+  props<{ postId: bigint }>(),
 );
 export const getCommentsSuccess = createAction(
   '[Comment] Get Comments Success',

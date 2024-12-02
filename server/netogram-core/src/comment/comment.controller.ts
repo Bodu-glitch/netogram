@@ -24,7 +24,7 @@ export class CommentController {
   }
 
   @Get()
-  async findAll(@Query('postId') postId: number) {
+  async findAll(@Query('postId') postId: string) {
     try {
       return await this.commentService.findAll(postId);
     } catch (e) {
@@ -41,6 +41,7 @@ export class CommentController {
 
   @Delete()
   remove(@Body() deleteCommentDto: CreateCommentDto) {
+    console.log(deleteCommentDto);
     return this.commentService.delete(deleteCommentDto.commentId);
   }
 }
